@@ -34,6 +34,34 @@ const insightData = {
   }]
 };
 
+const insightData2 = {
+  labels: [],
+  datasets: [{
+      data: [],
+      backgroundColor: 'rgba(82, 186, 92, 1)',
+      borderColor: 'rgb(82, 186, 92, 1)',
+      borderWidth: 2,
+      pointRadius: 0,
+      pointHitRadius: 100
+  }]
+};
+
+const insightData3 = {
+  labels: [],
+  datasets: [{
+      data: [],
+      backgroundColor: 'rgb(66, 103, 178)'
+  }]
+};
+
+const insightData4 = {
+  labels: [],
+  datasets: [{
+      data: [],
+      backgroundColor: 'rgb(66, 103, 178)'
+  }]
+};
+
 const insightOptions = {
   plugins: {
     legend: {
@@ -64,7 +92,124 @@ const insightOptions = {
       }
     },
     y: {
-        beginAtZero: true
+      title: {
+        display: true,
+        text: 'text'
+      }
+    }
+  }
+};
+
+const insightOptions2 = {
+  plugins: {
+    legend: {
+      display: false
+    },
+    title: {
+      display: true,
+      text: 'Insights',
+      align: 'start',
+      font: {
+        size: 18
+      }
+    }
+  },
+  scales: {
+    x: {
+      time: {
+        unit: 'week'
+      },
+      type: 'time',
+      offset: true,
+      title: {
+        display: true,
+        text: 'Date'
+      },
+      grid: {
+        display: false
+      }
+    },
+    y: {
+      title: {
+        display: true,
+        text: 'text'
+      }
+    }
+  }
+};
+
+const insightOptions3 = {
+  plugins: {
+    legend: {
+      display: false
+    },
+    title: {
+      display: true,
+      text: 'Insights',
+      align: 'start',
+      font: {
+        size: 18
+      }
+    }
+  },
+  scales: {
+    x: {
+      time: {
+        unit: 'week'
+      },
+      type: 'time',
+      offset: true,
+      title: {
+        display: true,
+        text: 'Date'
+      },
+      grid: {
+        display: false
+      }
+    },
+    y: {
+      title: {
+        display: true,
+        text: 'text'
+      }
+    }
+  }
+};
+
+const insightOptions4 = {
+  plugins: {
+    legend: {
+      display: false
+    },
+    title: {
+      display: true,
+      text: 'Insights',
+      align: 'start',
+      font: {
+        size: 18
+      }
+    }
+  },
+  scales: {
+    x: {
+      time: {
+        unit: 'week'
+      },
+      type: 'time',
+      offset: true,
+      title: {
+        display: true,
+        text: 'Date'
+      },
+      grid: {
+        display: false
+      }
+    },
+    y: {
+      title: {
+        display: true,
+        text: 'text'
+      }
     }
   }
 };
@@ -135,11 +280,14 @@ const followerCountOptions = {
   }
 };
 
+
 const myChart = new Chart(ctx,{type: 'line', data: followerCountData, options: followerCountOptions});
 const myChart2 = new Chart(ctx2,{type: 'line', data: insightData, options: insightOptions});
-const myChart3 = new Chart(ctx3,{type: 'line', data: insightData, options: insightOptions});
-const myChart4 = new Chart(ctx4,{type: 'line', data: insightData, options: insightOptions});
-const myChart5 = new Chart(ctx5,{type: 'line', data: insightData, options: insightOptions});
+const myChart3 = new Chart(ctx3,{type: 'line', data: insightData2, options: insightOptions2});
+const myChart4 = new Chart(ctx4,{type: 'bar', data: insightData3, options: insightOptions3});
+const myChart5 = new Chart(ctx5,{type: 'bar', data: insightData4, options: insightOptions4});
+
+
 
 fetchData('https://real-sheet-26ui5cq6.wl.gateway.dev/display_data?source=follower_counts').then(
   (sheetJSON)=>{
@@ -147,6 +295,8 @@ fetchData('https://real-sheet-26ui5cq6.wl.gateway.dev/display_data?source=follow
     followerCountData.datasets[0].data = sheetJSON.values[1].map(x => parseInt(x));
     followerCountData.datasets[1].data = sheetJSON.values[2].map(x => parseInt(x));
     myChart.update();
+    document.getElementById('myChart').style.visibility = 'visible';
+    document.querySelector('.chart-container').classList.remove('skeleton');
 });
 
 
@@ -154,18 +304,33 @@ fetchData('https://real-sheet-26ui5cq6.wl.gateway.dev/display_data?source=insigh
   sheetJSON=>{
     insightData.labels = sheetJSON.values[0].map(x => DateTime.fromISO(x).toJSDate());
     insightData.datasets[0].data = sheetJSON.values[1].map(x => parseInt(x));
-    insightOptions.plugins.title.text = 'Instagram Reach over Time'
+    insightOptions.plugins.title.text = 'Instagram Reach over Time';
+    insightOptions.scales.y.title.text = 'reach';
     myChart2.update();
-    insightData.datasets[0].data = sheetJSON.values[2].map(x => parseInt(x));
-    insightOptions.plugins.title.text = 'Instagram Impression over Time'
+    document.getElementById('ig_reach_chart').style.visibility = 'visible';
+    document.getElementById('item1').classList.remove('skeleton');
+    insightData2.labels = sheetJSON.values[0].map(x => DateTime.fromISO(x).toJSDate());
+    insightData2.datasets[0].data = sheetJSON.values[2].map(x => parseInt(x));
+    insightOptions2.plugins.title.text = 'Instagram Impression over Time'
+    insightOptions2.scales.y.title.text = 'impressions';
     myChart3.update();
-    insightData.datasets[0].data = sheetJSON.values[3].map(x => parseInt(x));
-    insightData.datasets[0].type = 'bar';
-    insightOptions.plugins.title.text = 'Facebook Page Engaged Users over Time'
+    document.getElementById('ig_impression_chart').style.visibility = 'visible';
+    document.getElementById('item2').classList.remove('skeleton');
+    insightData3.labels = sheetJSON.values[0].map(x => DateTime.fromISO(x).toJSDate());
+    insightData3.datasets[0].data = sheetJSON.values[3].map(x => parseInt(x));
+    insightOptions3.plugins.title.text = 'Facebook Page Engaged Users over Time'
+    insightOptions3.scales.y.title.text = 'engaged users';
     myChart4.update();
-    insightData.datasets[0].data = sheetJSON.values[4].map(x => parseInt(x));
-    insightOptions.plugins.title.text = 'Facebook Page Impression over Time'
+    document.getElementById('fb_engaged_user_chart').style.visibility = 'visible';
+    document.getElementById('item3').classList.remove('skeleton');
+    insightData4.labels = sheetJSON.values[0].map(x => DateTime.fromISO(x).toJSDate());
+    insightData4.datasets[0].data = sheetJSON.values[4].map(x => parseInt(x));
+    insightOptions4.plugins.title.text = 'Facebook Page Impression over Time'
+    insightOptions4.scales.y.title.text = 'impressions';
     myChart5.update();
+    document.getElementById('fb_impression_chart').style.visibility = 'visible';
+    document.getElementById('item4').classList.remove('skeleton');
+
   }
 )
 
