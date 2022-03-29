@@ -1,0 +1,18 @@
+{
+  "name": "lf-social-media-vis",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^2.8.0"
+  },
+  "dependencies": {
+    "chart.js": "^3.7.1",
+    "chartjs-adapter-luxon": "^1.1.0",
+    "luxon": "^2.3.1"
+  }
+}
