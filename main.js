@@ -82,11 +82,6 @@ const insightOptions = {
         unit: 'week'
       },
       type: 'time',
-      offset: true,
-      title: {
-        display: true,
-        text: 'Date'
-      },
       grid: {
         display: false
       }
@@ -120,11 +115,6 @@ const insightOptions2 = {
         unit: 'week'
       },
       type: 'time',
-      offset: true,
-      title: {
-        display: true,
-        text: 'Date'
-      },
       grid: {
         display: false
       }
@@ -158,11 +148,6 @@ const insightOptions3 = {
         unit: 'week'
       },
       type: 'time',
-      offset: true,
-      title: {
-        display: true,
-        text: 'Date'
-      },
       grid: {
         display: false
       }
@@ -196,11 +181,6 @@ const insightOptions4 = {
         unit: 'week'
       },
       type: 'time',
-      offset: true,
-      title: {
-        display: true,
-        text: 'Date'
-      },
       grid: {
         display: false
       }
@@ -260,10 +240,6 @@ const followerCountOptions = {
   scales: {
     x: {
       type: 'time',
-      title: {
-        display: true,
-        text: 'Date'
-      },
       grid: {
         display: false
       },
