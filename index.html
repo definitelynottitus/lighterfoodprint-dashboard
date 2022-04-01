@@ -2,37 +2,48 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/ligterfoodprint-dashboard/assets/favicon.ee35136d.svg" />
+    <link rel="icon" type="image/svg+xml" href="/lighterfoodprint-dashboard/assets/favicon.ee35136d.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LF Dashboard</title>
-    <script type="module" crossorigin src="/ligterfoodprint-dashboard/assets/index.07e91357.js"></script>
-    <link rel="modulepreload" href="/ligterfoodprint-dashboard/assets/vendor.b59b74b7.js">
-    <link rel="stylesheet" href="/ligterfoodprint-dashboard/assets/index.d7ada975.css">
+    <script type="module" crossorigin src="/lighterfoodprint-dashboard/assets/index.0056f2a7.js"></script>
+    <link rel="modulepreload" href="/lighterfoodprint-dashboard/assets/vendor.b59b74b7.js">
+    <link rel="stylesheet" href="/lighterfoodprint-dashboard/assets/index.d56dd61c.css">
   </head>
   <body>
     <div class="container">
       <section class="header-text">
         <div class="title">
-          <img src="/ligterfoodprint-dashboard/assets/logo.2f2ad30f.png" width="150" height="150">
+          <img src="/lighterfoodprint-dashboard/assets/logo.2f2ad30f.png" width="150" height="150">
           <h1>Lighter Foodprint Social Media Tracker</h1>
         </div>
         <p>All data below are tracked weekly and please Stay tune for more update.</p>
       </section>
-      <div class="chart-container skeleton">
-        <canvas id="myChart"></canvas>
+      <div class="chart-container">
+        <div class="chart-title skeleton-text"><h3 class="chart-title-text">Total Followers over Time</h3></div>
+        <div class="skeleton"><canvas class ="chart" id="myChart"></canvas></div>
       </div>
       <div class="card-view">
-        <div class ="skeleton" id="item1">
-          <canvas id="ig_reach_chart"></canvas>
+        <div id="item1">
+          <div class="chart-title skeleton-text">
+              <h3 class="chart-title-text">ⓘ Instagram Reach over Time</h3>
+              <span class="tooltip-text">Total number of unique users who have viewed at least one of the IG User's IG Media. Repeat views and views across different IG Media owned by the IG User by the same user are only counted as a single view.</span>
+          </div>
+          <div class="skeleton"><canvas class ="chart" id="ig_reach_chart"></canvas></div>
         </div>
-        <div class ="skeleton" id="item2">
-          <canvas id="ig_impression_chart"></canvas>
+        <div id="item2">
+          <div class="chart-title skeleton-text">
+            <h3 class="chart-title-text">ⓘ Instagram Impression over Time</h3>
+            <span class="tooltip-text">Total number of times the IG User's IG Media have been viewed. Includes ad activity generated through the API, Facebook ads interfaces, and the Promote feature. Does not include profile views.</span>
+          </div>
+          <div class="skeleton"><canvas class ="chart" id="ig_impression_chart"></canvas></div>
         </div>
-        <div class ="skeleton" id="item3">
-          <canvas id="fb_engaged_user_chart"></canvas>
+        <div id="item3">
+          <div class="chart-title skeleton-text"><h3 class="chart-title-text">ⓘ Facebook Page Engaged Users over Time</h3></div>
+          <div class="skeleton"><canvas class ="chart" id="fb_engaged_user_chart"></canvas></div>
         </div>
-        <div class ="skeleton" id="item4">
-          <canvas id="fb_impression_chart"></canvas>
+        <div id="item4">
+          <div class="chart-title skeleton-text"><h3 class="chart-title-text">ⓘ Facebook Page Impression over Time</h3></div>
+          <div class="skeleton"><canvas class ="chart" id="fb_impression_chart"></canvas></div>
         </div>
       </div>
     </div>
