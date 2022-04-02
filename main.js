@@ -231,7 +231,26 @@ const myChart3 = new Chart(ctx3,{type: 'line', data: insightData2, options: insi
 const myChart4 = new Chart(ctx4,{type: 'line', data: insightData3, options: insightOptions3});
 const myChart5 = new Chart(ctx5,{type: 'line', data: insightData4, options: insightOptions4});
 
+function calculateWeeklyGrowth(array){
+  if (array.length > 1){
+    return Math.round((array[array.length - 1]/array[array.length - 2] - 1) * 100)
+  }else{
+    return 0;
+  }
+}
 
+function updateGrowthPercentage(percentage, elementID){
+  if (percentage > 0){
+    document.getElementById(elementID).innerHTML = `▲ ${percentage}%`;
+    document.getElementById(elementID).style.color = '#10e021';
+  }else if(percentage === 0){
+    document.getElementById(elementID).innerHTML = `⧎ ${percentage}%`;
+    document.getElementById(elementID).style.color = '#787878';
+  }else{
+    document.getElementById(elementID).innerHTML = `▼ ${percentage}%`;
+    document.getElementById(elementID).style.color = '#eb4034';
+  }
+}
 
 fetchData('https://real-sheet-26ui5cq6.wl.gateway.dev/display_data?source=follower_counts').then(
   (sheetJSON)=>{
@@ -246,21 +265,28 @@ fetchData('https://real-sheet-26ui5cq6.wl.gateway.dev/display_data?source=insigh
   sheetJSON=>{
     insightData.labels = sheetJSON.values[0].map(x => DateTime.fromISO(x).toJSDate());
     insightData.datasets[0].data = sheetJSON.values[1].map(x => parseInt(x));
-    myChart2.update();
     insightData2.labels = sheetJSON.values[0].map(x => DateTime.fromISO(x).toJSDate());
     insightData2.datasets[0].data = sheetJSON.values[2].map(x => parseInt(x));
-    myChart3.update();
     insightData3.labels = sheetJSON.values[0].map(x => DateTime.fromISO(x).toJSDate());
     insightData3.datasets[0].data = sheetJSON.values[3].map(x => parseInt(x));
-    myChart4.update();
     insightData4.labels = sheetJSON.values[0].map(x => DateTime.fromISO(x).toJSDate());
     insightData4.datasets[0].data = sheetJSON.values[4].map(x => parseInt(x));
+
+    myChart2.update();
+    myChart3.update();
+    myChart4.update();
     myChart5.update();
+
+    updateGrowthPercentage(calculateWeeklyGrowth(sheetJSON.values[5]),'fb-page-view-rate');
+    updateGrowthPercentage(calculateWeeklyGrowth(sheetJSON.values[2]),'ig-impression-rate');
+    updateGrowthPercentage(calculateWeeklyGrowth(sheetJSON.values[3]),'fb-eg-user-rate');
+    updateGrowthPercentage(calculateWeeklyGrowth(sheetJSON.values[1]),'ig-reach-rate');
     
     [...document.querySelectorAll('.skeleton-text')].map(x =>{ x.classList.remove('skeleton-text');});
     [...document.querySelectorAll('.skeleton')].map(x =>{ x.classList.remove('skeleton');});
     [...document.querySelectorAll('.chart')].map(x =>{ x.style.visibility = 'visible';});
     [...document.querySelectorAll('.chart-title-text')].map(x =>{ x.style.visibility = 'visible';});
+    [...document.querySelectorAll('.card-p-text')].map(x =>{ x.style.visibility = 'visible';});
   }
 )
 
