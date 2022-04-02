@@ -5,9 +5,9 @@
     <link rel="icon" type="image/svg+xml" href="/lighterfoodprint-dashboard/assets/favicon.ee35136d.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LF Dashboard</title>
-    <script type="module" crossorigin src="/lighterfoodprint-dashboard/assets/index.0056f2a7.js"></script>
+    <script type="module" crossorigin src="/lighterfoodprint-dashboard/assets/index.77003e71.js"></script>
     <link rel="modulepreload" href="/lighterfoodprint-dashboard/assets/vendor.b59b74b7.js">
-    <link rel="stylesheet" href="/lighterfoodprint-dashboard/assets/index.d56dd61c.css">
+    <link rel="stylesheet" href="/lighterfoodprint-dashboard/assets/index.6294782f.css">
   </head>
   <body>
     <div class="container">
@@ -18,6 +18,24 @@
         </div>
         <p>All data below are tracked weekly and please Stay tune for more update.</p>
       </section>
+      <div class="card-container">
+        <div id="card-item-1" class="card-items">
+          <h4>Weekly Growth Rate:<br>Facebook Page View</h4>
+          <div class="skeleton"><p class="card-p-text" id="fb-page-view-rate">⧎----%</p></div>
+        </div>
+        <div id="card-item-2" class="card-items">
+          <h4>Weekly Growth Rate:<br>Instagram Impression</h4>
+          <div class="skeleton"><p class="card-p-text" id="ig-impression-rate">⧎----%</p></div>
+        </div>
+        <div id="card-item-3" class="card-items">
+          <h4>Weekly Growth Rate:<br>Facebook Page Engaged Users</h4>
+          <div class="skeleton"><p class="card-p-text" id="fb-eg-user-rate">⧎----%</p></div>
+        </div>
+        <div id="card-item-4" class="card-items">
+          <h4>Weekly Growth Rate:<br>Instagram Reach</h4>
+          <div class="skeleton"><p class="card-p-text" id="ig-reach-rate">⧎----%</p></div>
+        </div>
+      </div>
       <div class="chart-container">
         <div class="chart-title skeleton-text"><h3 class="chart-title-text">Total Followers over Time</h3></div>
         <div class="skeleton"><canvas class ="chart" id="myChart"></canvas></div>
@@ -38,11 +56,17 @@
           <div class="skeleton"><canvas class ="chart" id="ig_impression_chart"></canvas></div>
         </div>
         <div id="item3">
-          <div class="chart-title skeleton-text"><h3 class="chart-title-text">ⓘ Facebook Page Engaged Users over Time</h3></div>
+          <div class="chart-title skeleton-text">
+            <h3 class="chart-title-text">ⓘ Facebook Page Engaged Users over Time</h3>
+            <span class="tooltip-text">The number of people who engaged with your Page. Engagement includes any click.</span>
+          </div>
           <div class="skeleton"><canvas class ="chart" id="fb_engaged_user_chart"></canvas></div>
         </div>
         <div id="item4">
-          <div class="chart-title skeleton-text"><h3 class="chart-title-text">ⓘ Facebook Page Impression over Time</h3></div>
+          <div class="chart-title skeleton-text">
+            <h3 class="chart-title-text">ⓘ Facebook Page Impression over Time</h3>
+            <span class="tooltip-text">The number of times your Page's post entered a person's screen. Posts include statuses, photos, links, videos and more.</span>
+          </div>
           <div class="skeleton"><canvas class ="chart" id="fb_impression_chart"></canvas></div>
         </div>
       </div>
@@ -52,7 +76,7 @@
           <p >Contact for any issues: <a href="mailto:contact@titusl.com" target="_blank">contact@titusl.com</a></p>
         </div>
         <div id="second-item">
-          <p>Version 1.0.0 (Beta)</p>
+          <p>Version 1.0.1 (Beta)</p>
         </div>
     </footer>
     
