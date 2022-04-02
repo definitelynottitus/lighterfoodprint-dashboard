@@ -168,9 +168,10 @@ footer{
     grid-template-columns: 1fr;
   }
   .tooltip-text{
-    left: 100%;
+    left: 20%;
   }
   .card-container{
     flex-direction: column;
+    gap: 40px;
   }
 }
