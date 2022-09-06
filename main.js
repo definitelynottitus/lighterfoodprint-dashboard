@@ -232,7 +232,7 @@ const myChart4 = new Chart(ctx4,{type: 'line', data: insightData3, options: insi
 const myChart5 = new Chart(ctx5,{type: 'line', data: insightData4, options: insightOptions4});
 
 function calculateWeeklyGrowth(array){
-  if (array.length > 1){
+  if (array.length > 1 && array[array.length - 2] > 0){
     return Math.round((array[array.length - 1]/array[array.length - 2] - 1) * 100)
   }else{
     return 0;
